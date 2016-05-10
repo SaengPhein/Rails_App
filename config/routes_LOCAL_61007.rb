@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#home'
-  
+
   get "About" => "pages#about", as: :about
   get "Contact" => "pages#contact", as: :contact
 
