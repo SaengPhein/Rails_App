@@ -60,6 +60,7 @@ CREATE TABLE `exams` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(10) NOT NULL,
   `class_id` varchar(10) NOT NULL,
+  `path` varchar(100) NOT NULL DEFAULT 'N/A',
   PRIMARY KEY (`name`,`class_id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`),
@@ -110,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-09 22:40:14
+-- Dump completed on 2016-05-09 22:45:17
