@@ -24,29 +24,29 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `testbank_development` /*!40100 DEFAULT
 USE `testbank_development`;
 
 --
--- Table structure for table `class`
+-- Table structure for table `classes`
 --
 
-DROP TABLE IF EXISTS `class`;
+DROP TABLE IF EXISTS `classes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `class` (
+CREATE TABLE `classes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `number` varchar(10) NOT NULL,
   `major_id` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
-  CONSTRAINT `major_id` FOREIGN KEY (`id`) REFERENCES `major` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `major_id` FOREIGN KEY (`id`) REFERENCES `majors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `class`
+-- Dumping data for table `classes`
 --
 
-LOCK TABLES `class` WRITE;
-/*!40000 ALTER TABLE `class` DISABLE KEYS */;
-/*!40000 ALTER TABLE `class` ENABLE KEYS */;
+LOCK TABLES `classes` WRITE;
+/*!40000 ALTER TABLE `classes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `classes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `exams` (
   PRIMARY KEY (`name`,`class_id`),
   UNIQUE KEY `id_UNIQUE` (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`),
-  CONSTRAINT `class_id` FOREIGN KEY (`id`) REFERENCES `class` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `class_id` FOREIGN KEY (`id`) REFERENCES `classes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -78,13 +78,13 @@ LOCK TABLES `exams` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `major`
+-- Table structure for table `majors`
 --
 
-DROP TABLE IF EXISTS `major`;
+DROP TABLE IF EXISTS `majors`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `major` (
+CREATE TABLE `majors` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `major_abbreviation` varchar(10) NOT NULL,
@@ -94,12 +94,12 @@ CREATE TABLE `major` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `major`
+-- Dumping data for table `majors`
 --
 
-LOCK TABLES `major` WRITE;
-/*!40000 ALTER TABLE `major` DISABLE KEYS */;
-/*!40000 ALTER TABLE `major` ENABLE KEYS */;
+LOCK TABLES `majors` WRITE;
+/*!40000 ALTER TABLE `majors` DISABLE KEYS */;
+/*!40000 ALTER TABLE `majors` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -111,4 +111,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-09 22:45:17
+-- Dump completed on 2016-05-09 23:10:11
